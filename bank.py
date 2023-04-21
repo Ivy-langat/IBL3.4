@@ -1,16 +1,22 @@
-Greeting = input ("Greeting: ")
+def main():
+    greeting = input ("Greeting: ")
+    value= value(greeting)
+    print("$" + value)
 
+def value(greeting):
 #convert greeting in all lowercase and without whitespaces
-Greeting = Greeting.lower().strip()
+    greeting = greeting.lower().strip()
 
-if Greeting[0:5]=="hello" :
-    print("$0")
+    if greeting[:5]=="hello" :
+        return 0
 
 # return $ 20
-elif Greeting[0]=="h" :
-        print("$20")
+    elif greeting[0]=="h" :
+        return 20
 
 #otherwise input $100
-else:
-            print("$100")
+    else:
+        return 100
 
+if __name__ == "__main__":
+    main()  
