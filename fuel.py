@@ -1,26 +1,37 @@
-while True:
-    fuel=input("fraction:")
+def main():
+    fraction = input("Fraction")
+    fraction_converted = convert(fraction)
+    output = gauge(fraction_converted)
+    print(output)
 
-    try:
-        num , den= fuel.split("/")
+def convert(fraction):
+    while True:
+        try:
+            num , den= fraction.split("/")
 #converting into integer
-        new_num=int(num)
-        new_den=int(den)
+            new_num=int(num)
+            new_den=int(den)
 
-        f=new_num/new_den
+            f=new_num/new_den
 
-        if f<=1:
-            break
-    except(ValueError, ZeroDivisionError):
-        pass
+            if f<=1:
+                p= int(f*100)
+                return p
+            else:
+                fraction =input("Fraction")
+                pass
+        except(ValueError, ZeroDivisionError):
+            raise
 
 #multiplying percentage
-p= int(f*100)
+def gauge(p):
 
-if p<=1:
-    print("e")
-elif p>=99:
-    print("f")
-else:
-    print(f"{p}%")
+    if p<=1:
+        return "e"
+    elif p>=99:
+        return "f"
+    else:
+        return str(p) + "%"
 
+if __name__ =="__main__":
+    main()
